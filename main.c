@@ -7,6 +7,7 @@ void test_or_gate();
 void test_xor_gate();
 
 // Simulate a NOT gate
+// Input value must be 0 or 1
 int not_gate(int bit_a) {
     if (bit_a == 0) {
         return 1;
@@ -17,6 +18,7 @@ int not_gate(int bit_a) {
 }
 
 // Simulate an AND gate
+// Input values must be 0 or 1
 int and_gate(int bit_a, int bit_b) {
     if ((bit_a == 1) && (bit_b == 1)) {
         return 1;
@@ -27,6 +29,7 @@ int and_gate(int bit_a, int bit_b) {
 }
 
 // Simulate an OR gate
+// Input values must be 0 or 1
 int or_gate(int bit_a, int bit_b) {
     if ((bit_a == 1) || (bit_b == 1)) {
         return 1;
@@ -37,6 +40,7 @@ int or_gate(int bit_a, int bit_b) {
 }
 
 // Simulate an XOR gate
+// Input values must be 0 or 1
 int xor_gate(int bit_a, int bit_b) {
     int not_a;
     int not_b;
