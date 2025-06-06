@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Function prototypes
+// Test function prototypes
 void test_not_gate();
 void test_and_gate();
 void test_or_gate();
@@ -60,9 +60,9 @@ int xor_gate(int bit_a, int bit_b) {
 // Simulate a half adder
 // Inputs: bit_a and bit_b must be 0 or 1
 // Outputs: sum and carry are pointers to ints that store the sum and carry values
-void half_adder(int bit_a, int bit_b, int* sum, int* carry) {
+void half_adder(int bit_a, int bit_b, int* sum, int* carry_out) {
     *sum = xor_gate(bit_a, bit_b);
-    *carry = and_gate(bit_a, bit_b);
+    *carry_out = and_gate(bit_a, bit_b);
 }
 
 int main() {
@@ -154,17 +154,17 @@ void test_half_adder() {
     int bit_a;
     int bit_b;
     int sum;
-    int carry;
+    int carry_out;
 
     for (int a = 0; a <= 1; ++a) {
         bit_a = a;
 
         for (int b = 0; b <= 1; ++b) {
             bit_b = b;
-            half_adder(bit_a, bit_b, &sum, &carry);
+            half_adder(bit_a, bit_b, &sum, &carry_out);
 
             printf("Result of adding %d and %d...\n", bit_a, bit_b);
-            printf("Sum: %d\nCarry: %d\n", sum, carry);
+            printf("Sum: %d\nCarry Out: %d\n", sum, carry_out);
         }
     }
 
