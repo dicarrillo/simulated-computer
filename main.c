@@ -10,6 +10,7 @@ void test_full_adder();
 
 // Simulate a NOT gate
 // Input: bit_a must be 0 or 1
+// Output: NOT bit_a
 int not_gate(int bit_a) {
     if (bit_a == 0) {
         return 1;
@@ -21,6 +22,7 @@ int not_gate(int bit_a) {
 
 // Simulate an AND gate
 // Inputs: bit_a and bit_b must be 0 or 1
+// Output: bit_a AND bit_b
 int and_gate(int bit_a, int bit_b) {
     if ((bit_a == 1) && (bit_b == 1)) {
         return 1;
@@ -32,6 +34,7 @@ int and_gate(int bit_a, int bit_b) {
 
 // Simulate an OR gate
 // Inputs: bit_a and bit_b must be 0 or 1
+// Output: bit_a OR bit_b
 int or_gate(int bit_a, int bit_b) {
     if ((bit_a == 1) || (bit_b == 1)) {
         return 1;
@@ -43,6 +46,7 @@ int or_gate(int bit_a, int bit_b) {
 
 // Simulate an XOR gate
 // Inputs: bit_a and bit_b must be 0 or 1
+// Output: bit_a XOR bit_b
 int xor_gate(int bit_a, int bit_b) {
     int not_a;
     int not_b;
