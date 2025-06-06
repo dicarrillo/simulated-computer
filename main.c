@@ -4,8 +4,9 @@
 void test_not_gate();
 void test_and_gate();
 void test_or_gate();
+void test_xor_gate();
 
-// Simulates a NOT gate
+// Simulate a NOT gate
 int not_gate(int bit_a) {
     if (bit_a == 0) {
         return 1;
@@ -15,7 +16,7 @@ int not_gate(int bit_a) {
     }
 }
 
-// Simulates an AND gate
+// Simulate an AND gate
 int and_gate(int bit_a, int bit_b) {
     if ((bit_a == 1) && (bit_b == 1)) {
         return 1;
@@ -25,7 +26,7 @@ int and_gate(int bit_a, int bit_b) {
     }
 }
 
-// Simulates an OR gate
+// Simulate an OR gate
 int or_gate(int bit_a, int bit_b) {
     if ((bit_a == 1) || (bit_b == 1)) {
         return 1;
@@ -35,15 +36,33 @@ int or_gate(int bit_a, int bit_b) {
     }
 }
 
+// Simulate an XOR gate
+int xor_gate(int bit_a, int bit_b) {
+    int not_a;
+    int not_b;
+    int and_result_1;
+    int and_result_2;
+
+    not_a = not_gate(bit_a);
+    not_b = not_gate(bit_b);
+
+    and_result_1 = and_gate(bit_a, not_b);
+    and_result_2 = and_gate(not_a, bit_b);
+
+    return or_gate(and_result_1, and_result_2);
+}
+
 int main() {
+    // Test logic gate outputs
     test_not_gate();
     test_and_gate();
     test_or_gate();
+    test_xor_gate();
 
     return 0;
 }
 
-// Tests NOT gate for all values of bit 'a'
+// Test NOT gate for all values of bit 'a'
 void test_not_gate() {
     int bit_a;
     int result;
@@ -57,7 +76,7 @@ void test_not_gate() {
     printf("\n");
 }
 
-// Tests AND gate for all values of bits 'a' and 'b'
+// Test AND gate for all values of bits 'a' and 'b'
 void test_and_gate() {
     int bit_a;
     int bit_b;
@@ -89,6 +108,25 @@ void test_or_gate() {
             bit_b = b;
             result = or_gate(bit_a, bit_b);
             printf("Result of %d OR %d: %d\n", bit_a, bit_b, result);
+        }
+    }
+
+    printf("\n");
+}
+
+// Test XOR gate for all values of bits 'a' and 'b'
+void test_xor_gate() {
+    int bit_a;
+    int bit_b;
+    int result;
+
+    for (int a = 0; a <= 1; ++a) {
+        bit_a = a;
+
+        for (int b = 0; b <= 1; ++b) {
+            bit_b = b;
+            result = xor_gate(bit_a, bit_b);
+            printf("Result of %d XOR %d: %d\n", bit_a, bit_b, result);
         }
     }
 
