@@ -2,17 +2,32 @@
 
 // Simulates a NOT gate
 int not_gate(int bit_a) {
-    return bit_a ^ 1;
+    if (bit_a == 0) {
+        return 1;
+    }
+    else {
+        return 0;
+    }
 }
 
 // Simulates an AND gate
 int and_gate(int bit_a, int bit_b) {
-    return bit_a & bit_b; 
+    if ((bit_a == 1) && (bit_b == 1)) {
+        return 1;
+    }
+    else {
+        return 0;
+    }
 }
 
 // Simulates an OR gate
 int or_gate(int bit_a, int bit_b) {
-    return bit_a | bit_b;
+    if ((bit_a == 1) || (bit_b == 1)) {
+        return 1;
+    }
+    else {
+        return 0;
+    }
 }
 
 int main()
@@ -23,9 +38,6 @@ int main()
 
     bit_a = 0;
     bit_b = 0;
-    result = or_gate(bit_a, bit_b);
-
-    printf("Result: %d\n", result);
 
     return 0;
 }
