@@ -2,6 +2,8 @@
 #include "adders.h"
 #include "test_logic.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 // Test NOT gate for all values of bit 'a'
 void test_not_gate() {
@@ -121,4 +123,71 @@ void test_full_adder() {
     }
 
     printf("\n");
+}
+
+// Randomize the values of eight bits
+// Helper function for test_single_eight_bit_adder
+// Input: 'byte' is a pointer to an int array storing eight bits
+// Output: 'byte' is populated with random bit values
+void randomize_byte(int* byte) {
+    for (int i = 0; i < 8; ++i) {
+        byte[i] = rand() % 2;
+    }
+}
+
+// Test eight-bit adder for random values of bytes 'a' and 'b'
+// Helper function for test_eight_bit_adder
+void test_single_eight_bit_adder() {
+    int sum_byte[8];
+    int byte_a[8];
+    int byte_b[8];
+
+    randomize_byte(byte_a);
+    randomize_byte(byte_b);
+
+    eight_bit_adder(byte_a, byte_b, sum_byte);
+    
+    printf("  ");
+
+    for (int i = 7; i >= 0; --i) {
+        if (i == 0) {
+            printf("%d\n", byte_a[i]);
+        }
+        else {
+            printf("%d ", byte_a[i]);
+        }
+    }
+    
+    printf("+ ");
+
+    for (int i = 7; i >= 0; --i) {
+        if (i == 0) {
+            printf("%d\n", byte_b[i]);
+        }
+        else {
+            printf("%d ", byte_b[i]);
+        }
+    }
+    
+    printf("-----------------\n  ");
+
+    for (int i = 7; i >= 0; --i) {
+        if (i == 0) {
+            printf("%d\n", sum_byte[i]);
+        }
+        else {
+            printf("%d ", sum_byte[i]);
+        }
+    }
+
+    printf("\n");
+}
+
+// Test eight bit adder for several randomly-generated addition operations
+void test_eight_bit_adder() {
+    srand(time(NULL));
+
+    for (int i = 0; i < 8; ++i) {
+        test_single_eight_bit_adder();
+    }
 }
