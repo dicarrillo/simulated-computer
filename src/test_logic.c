@@ -202,7 +202,7 @@ void test_eight_bit_adder() {
 
     srand(time(NULL));
 
-    for (int i = 0; i < 8; ++i) {
+    for (int i = 0; i < 12; ++i) {
         test_single_eight_bit_adder();
     }
 }
