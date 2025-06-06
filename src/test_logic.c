@@ -10,6 +10,8 @@ void test_not_gate() {
     int bit_a;
     int result;
 
+    printf("Testing NOT gate...\n");
+
     for (int a = 0; a <= 1; ++a) {
         bit_a = a;
         result = not_gate(bit_a);
@@ -24,6 +26,8 @@ void test_and_gate() {
     int bit_a;
     int bit_b;
     int result;
+
+    printf("Testing AND gate...\n");
 
     for (int a = 0; a <= 1; ++a) {
         bit_a = a;
@@ -44,6 +48,8 @@ void test_or_gate() {
     int bit_b;
     int result;
 
+    printf("Testing OR gate...\n");
+
     for (int a = 0; a <= 1; ++a) {
         bit_a = a;
 
@@ -62,6 +68,8 @@ void test_xor_gate() {
     int bit_a;
     int bit_b;
     int result;
+
+    printf("Testing XOR gate...\n");
 
     for (int a = 0; a <= 1; ++a) {
         bit_a = a;
@@ -82,6 +90,8 @@ void test_half_adder() {
     int bit_b;
     int sum;
     int carry_out;
+
+    printf("Testing half-adder...\n");
 
     for (int a = 0; a <= 1; ++a) {
         bit_a = a;
@@ -105,6 +115,8 @@ void test_full_adder() {
     int carry_in;
     int sum;
     int carry_out;
+
+    printf("Testing full-adder...\n");
 
     for (int a = 0; a <= 1; ++a) {
         bit_a = a;
@@ -185,6 +197,8 @@ void test_single_eight_bit_adder() {
 
 // Test eight bit adder for several randomly-generated addition operations
 void test_eight_bit_adder() {
+    printf("Testing eight-bit adder...\n");
+
     srand(time(NULL));
 
     for (int i = 0; i < 8; ++i) {

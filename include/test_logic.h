@@ -7,7 +7,7 @@ void test_or_gate();
 void test_xor_gate();
 void test_half_adder();
 void test_full_adder();
-void randomize_byte();
+void randomize_byte(int* byte);
 void test_single_eight_bit_adder();
 void test_eight_bit_adder();
 
