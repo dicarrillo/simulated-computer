@@ -26,8 +26,9 @@ void full_adder(int bit_a, int bit_b, int carry_in, int* sum, int* carry_out) {
 
 // Simulate an eight-bit adder
 // Inputs: byte_a and byte_b are pointers to eight-bit addends, stored as int arrays
-// Output: sum_byte is a pointer to int array that stores the sum of the add operation
-void eight_bit_adder(int* byte_a, int* byte_b, int* sum_byte) {
+// Output: sum_byte is a pointer to int array that stores the sum of the add operation,
+//         final_carry_out is a pointer to the final carry-out bit
+void eight_bit_adder(int* byte_a, int* byte_b, int* sum_byte, int* final_carry_out) {
     int bit_a;
     int bit_b;
     int sum;
@@ -48,4 +49,6 @@ void eight_bit_adder(int* byte_a, int* byte_b, int* sum_byte) {
         full_adder(bit_a, bit_b, carry_in, &sum, &carry_out);
         sum_byte[i] = sum;
     }
+
+    *final_carry_out = carry_out;
 }

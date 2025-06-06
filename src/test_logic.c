@@ -150,14 +150,15 @@ void randomize_byte(int* byte) {
 // Test eight-bit adder for random values of bytes 'a' and 'b'
 // Helper function for test_eight_bit_adder
 void test_single_eight_bit_adder() {
-    int sum_byte[8];
     int byte_a[8];
     int byte_b[8];
+    int sum_byte[8];
+    int final_carry_out;
 
     randomize_byte(byte_a);
     randomize_byte(byte_b);
 
-    eight_bit_adder(byte_a, byte_b, sum_byte);
+    eight_bit_adder(byte_a, byte_b, sum_byte, &final_carry_out);
     
     printf("  ");
 
@@ -181,7 +182,7 @@ void test_single_eight_bit_adder() {
         }
     }
     
-    printf("-----------------\n  ");
+    printf("-----------------\n%d ", final_carry_out);
 
     for (int i = 7; i >= 0; --i) {
         if (i == 0) {
